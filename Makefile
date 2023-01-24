@@ -3,7 +3,7 @@
 NAME     = python-config
 RPM_NAME := $(NAME)
 PYTHON   := python
-VERSION  := $(shell python setup.py --version)
+VERSION  := $(shell sed -n s/[[:space:]]*Version:[[:space:]]*//p $(RPM_NAME).spec)
 
 build:
 	$(PYTHON) setup.py build
