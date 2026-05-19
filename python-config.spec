@@ -13,7 +13,7 @@ https://github.com/KonishchevDmitry/object-validator project.}
 
 Name:    python-config
 Version: 1.0.0
-Release: ROCKIT1%{?dist}
+Release: ROCKIT2%{?dist}
 Summary: A simple module for reading Python configuration files
 
 Group:   Development/Libraries
@@ -36,6 +36,7 @@ BuildRequires: python3-dataclasses
 BuildRequires: python%{python3_pkgversion}-click
 BuildRequires: python%{python3_pkgversion}-pytest >= 2.2.4
 BuildRequires: python%{python3_pkgversion}-rich
+BuildRequires: python%{python3_pkgversion}-setuptools <= 72.0.0
 %endif  # with tests
 Requires:  python3-dataclasses
 Requires:  python%{python3_pkgversion}-click
@@ -76,6 +77,9 @@ make PYTHON=%{__python3} check
 
 
 %changelog
+* Tue Jun 23 2026 Linar Nasyyrov <lnasyyrov@k2.cloud> - 1.0.0-ROCKIT2
+- Add RedOS 8.0 support
+
 * Tue Jan 24 2023 Andrey Kulaev <adkulaev@gmail.com> - 0.1.2-4
 - Add centos 8.4 support
 
