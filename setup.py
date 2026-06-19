@@ -49,7 +49,13 @@ if __name__ == "__main__":
         ],
         platforms = [ "unix", "linux", "osx" ],
 
-        packages = [ "python_config" ],
+        packages = [ "python_config", "python_config.viewer" ],
+
+        entry_points = {
+            "console_scripts": [
+                "python-config-view = python_config.viewer.cli:main",
+            ],
+        },
 
         cmdclass = { "test": PyTest },
         tests_require = [ "pytest" ],
