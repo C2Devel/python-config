@@ -33,9 +33,15 @@ BuildRequires: python%{python3_pkgversion}-devel
 BuildRequires: python%{python3_pkgversion}-setuptools
 %if 0%{with tests}
 BuildRequires: python%{python3_pkgversion}-pytest >= 2.2.4
+BuildRequires: python%{python3_pkgversion}-click
+BuildRequires: python%{python3_pkgversion}-rich
+%if 0%{?rhel} <= 8
 BuildRequires: python3-dataclasses
+%endif
 %endif  # with tests
+%if 0%{?rhel} <= 8
 Requires:  python3-dataclasses
+%endif
 Requires:  python%{python3_pkgversion}-click
 Requires:  python%{python3_pkgversion}-rich
 Obsoletes: python36-config
