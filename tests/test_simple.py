@@ -3,6 +3,7 @@
 import errno
 import io
 import os
+import sys
 import tempfile
 
 import pytest
@@ -33,6 +34,11 @@ def reference_load_impl(source):
     return config
 
 
+@pytest.mark.xfail(
+    sys.version_info >= (3, 12),
+    reason="reference_load_impl uses the imp module, removed in Python 3.12 (el10)",
+    raises=ModuleNotFoundError,
+)
 def test_load(confpath):
     """Brief test that config loads correctly."""
 
