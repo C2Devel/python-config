@@ -13,7 +13,7 @@ https://github.com/KonishchevDmitry/object-validator project.}
 
 Name:    python-config
 Version: 1.0.0
-Release: TEST17%{?dist}
+Release: ROCKIT1%{?dist}
 Summary: A simple module for reading Python configuration files
 
 Group:   Development/Libraries
