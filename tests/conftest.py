@@ -54,14 +54,15 @@ def confdoc(confpath):
     return python_config.document.load(confpath)
 
 
+# tmpdir_factory instead of tmp_path_factory: el8 pytest 3.4 without it
 @pytest.fixture(scope="session")
-def huge_conf_path(tmp_path_factory):
+def huge_conf_path(tmpdir_factory):
     """Return path to a generated huge config file."""
 
     source = generate_huge_config()
     assert source.count("\n") >= 15000
 
-    path = tmp_path_factory.mktemp("huge") / "huge.conf"
+    path = Path(str(tmpdir_factory.mktemp("huge"))) / "huge.conf"
     path.write_text(source)
 
     return path
