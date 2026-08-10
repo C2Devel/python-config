@@ -9,7 +9,7 @@ build:
 	$(PYTHON) setup.py build
 
 check:
-	$(PYTHON) setup.py test
+	$(PYTHON) -m pytest tests
 
 install:
 	$(PYTHON) setup.py install --skip-build $(INSTALL_FLAGS)
